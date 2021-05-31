@@ -1,0 +1,4 @@
+name: bdgliongson-tip
+state: present
+password: AnsibleManaged
+

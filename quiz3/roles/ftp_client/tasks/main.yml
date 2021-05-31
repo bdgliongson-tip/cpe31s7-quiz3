@@ -1,0 +1,20 @@
+---
+# tasks file for roles/ftp_client
+
+- name: Create ftpusers group
+  group:
+    name: ftpgroup
+    state: present
+
+- name: Add users that are allowed to use the FTP Server
+  user:
+    name: "{{ name }}"
+    state: "{{ state }}"
+    home: "/home/{{ name }}"
+    shell: "/bin/false"
+    password: "{{ user_password | password_hash( 'sha512' ) }}"
+    groups: ftpgroup
+    update_password: always
+  
+
+    

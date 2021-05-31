@@ -1,0 +1,8 @@
+---
+# handlers file for roles/ftp_client
+
+- name: Restart vsFTPd Server
+  service:
+    name: vsftpd
+    state: restarted
+

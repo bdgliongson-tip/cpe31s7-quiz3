@@ -1,0 +1,18 @@
+---
+- name: Add a false shell
+  lineinfile:
+    dest: "/etc/shells"
+    line: '/bin/false'
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Copy the vsftd configuration file to the server
+  template:
+    src: vsftpd.conf.j2
+    dest: "/etc/vsftpd.conf"
+    owner: root
+    group: root
+    mode: 0644
+  notify: Restart vsftpd Server
+

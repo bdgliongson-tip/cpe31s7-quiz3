@@ -1,0 +1,7 @@
+---
+# tasks file for roles/ftp-server
+
+
+- include: ftp_install.yml
+- include: ftp_configure.yml
+

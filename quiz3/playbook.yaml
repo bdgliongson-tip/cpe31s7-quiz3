@@ -1,0 +1,18 @@
+---  
+
+- name: Install and configure vsftpd server
+  hosts: target
+  
+  tasks:
+  - name: Include variables from config.yaml
+    include_vars:
+      file: config.yaml
+
+  - name: Install ftp server
+    include_role:
+      name: ftp-server
+
+
+  - name: ftp user testing
+    include_role:
+      name: ftp_client
