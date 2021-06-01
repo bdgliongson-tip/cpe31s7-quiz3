@@ -1,4 +1,4 @@
 name: bdgliongson-tip
 state: present
-password: AnsibleManaged
-
+comment: bdgliongson-tip FTP user
+password: "{{ 'AnsibleManaged' | password_hash('sha512') }}"

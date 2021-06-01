@@ -1,7 +1,7 @@
 ---
 # tasks file for roles/ftp-server
 
+- include_tasks: ftp_install.yml
+  when: ansible_os_family == "Debian" and ansible_lsb.major_release|int >= 8
 
-- include: ftp_install.yml
-- include: ftp_configure.yml
-
+- include_tasks: ftp_configure.yml

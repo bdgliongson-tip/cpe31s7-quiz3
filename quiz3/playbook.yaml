@@ -2,7 +2,9 @@
 
 - name: Install and configure vsftpd server
   hosts: target
-  
+  vars:
+    ftp_server_banner: "Welcome to the FTP service"
+
   tasks:
   - name: Include variables from config.yaml
     include_vars:

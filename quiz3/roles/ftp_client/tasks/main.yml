@@ -3,18 +3,17 @@
 
 - name: Create ftpusers group
   group:
-    name: ftpgroup
+    name: ftpusers
     state: present
 
 - name: Add users that are allowed to use the FTP Server
   user:
     name: "{{ name }}"
     state: "{{ state }}"
+    comment: "{{ comment }}"
     home: "/home/{{ name }}"
     shell: "/bin/false"
-    password: "{{ user_password | password_hash( 'sha512' ) }}"
-    groups: ftpgroup
+    password: "{{ password }}"
+    groups: ftpusers
     update_password: always
-  
 
-    
